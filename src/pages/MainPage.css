@@ -1,0 +1,44 @@
+.Main {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.GomiSearch {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.RegionSelect {
+  margin-bottom: 60px;
+}
+
+.Infos {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.GomiSearch input {
+  width: 360px;
+  height: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+}
+
+.GomiSearch button {
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+  border: 1px solid #000;
+}
+
+.WeekInfo .Weekly ul {
+  display: flex;
+  justify-content: space-between;
+}
