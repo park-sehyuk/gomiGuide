@@ -1,0 +1,20 @@
+.QuickCategoryPage .QuickCategoryList .QuickCategoryItem {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+.QuickCategoryPage .QuickCategoryList .QuickCategoryItem a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000;
+}
+
+.QuickCategoryPage .QuickCategoryList .QuickCategoryItem a img {
+  width: 60px;
+  height: 60px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}

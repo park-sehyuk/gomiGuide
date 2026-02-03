@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { Header } from "./conponents";
-import { MainPage } from "./pages";
+import { MainPage, SearchResultPage } from "./pages";
 import "./App.css";
 
 const LayOut = () => {
@@ -22,6 +22,7 @@ function App() {
         <Routes>
           <Route element={<LayOut />} path="/">
             <Route element={<MainPage />} index />
+            <Route element={<SearchResultPage />} path="search" />
           </Route>
         </Routes>
       </BrowserRouter>
