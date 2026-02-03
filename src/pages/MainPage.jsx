@@ -1,6 +1,36 @@
+import { useState } from "react";
+import {
+  TokyoMap,
+  TodayInfo,
+  WeekInfo,
+  QuickCategoryList,
+} from "../conponents/mainPage";
 import "./MainPage.css";
 
+const categoryData = [
+  { id: 1, name: "가연성", iconUrl: "../../public/icon/가연성.png" },
+  { id: 2, name: "불연성", iconUrl: "../../public/icon/불연성.png" },
+  { id: 3, name: "자원류", iconUrl: "../../public/icon/자원류.png" },
+  { id: 4, name: "가전", iconUrl: "../../public/icon/가전.png" },
+  { id: 5, name: "대형", iconUrl: "../../public/icon/대형.png" },
+  { id: 6, name: "유해", iconUrl: "../../public/icon/유해.png" },
+];
+
+const week = [
+  { id: 1, name: "월", imgUrl: "../../public/icon/가연성.png" },
+  { id: 2, name: "화", imgUrl: "../../public/icon/가연성.png" },
+  { id: 3, name: "수", imgUrl: "../../public/icon/불연성.png" },
+  { id: 4, name: "목", imgUrl: "../../public/icon/가전.png" },
+  { id: 5, name: "금", imgUrl: "../../public/icon/가연성.png" },
+  { id: 6, name: "토", imgUrl: "../../public/icon/대형.png" },
+  { id: 7, name: "일", imgUrl: "../../public/icon/자원류.png" },
+];
+
 const MainPage = () => {
+  const [selected, setSelected] = useState(null);
+  const [weekInfo, setWeekInfo] = useState(week);
+  const [quickCategory, setQuickCategory] = useState(categoryData);
+
   return (
     <div className="Main">
       <div className="GomiSearch">
@@ -10,86 +40,25 @@ const MainPage = () => {
         />
         <button>검색</button>
       </div>
-      <div className="RegionSelect">
-        <h2>지역 선택</h2>
+      <div className="RegionSelectPage">
+        <div className="MapSelect">
+          <p>지도를 클릭하여 거주하시는 구를 선택해주세요.</p>
+          <TokyoMap selectWard={(ward) => setSelected(ward)} />
+        </div>
       </div>
       <div className="Infos">
-        <div className="TodayInfo">
+        <div className="TodayInfoPage">
           <h2>오늘의 배출 정보 (Today)</h2>
-          <div>
-            <img src="" alt="" />
-            <p>가연성 쓰레기 버리는 날입니다!!</p>
-          </div>
+          <TodayInfo />
         </div>
-        <div className="WeekInfo">
+        <div className="WeekInfoPage">
           <h2>주간 일정 (Weekly)</h2>
-          <div className="Weekly">
-            <ul>
-              <li>
-                <p>월</p>
-              </li>
-              <li>
-                <p>화</p>
-              </li>
-              <li>
-                <p>수</p>
-              </li>
-              <li>
-                <p>목</p>
-              </li>
-              <li>
-                <p>금</p>
-              </li>
-              <li>
-                <p>토</p>
-              </li>
-              <li>
-                <p>일</p>
-              </li>
-            </ul>
-          </div>
+          <WeekInfo weekInfo={weekInfo} />
         </div>
       </div>
-      <div className="QuickCategory">
+      <div className="QuickCategoryPage">
         <h2>퀵 메뉴 (Category)</h2>
-        <div className="CategoryList">
-          <div className="item">
-            <a href="">
-              <img src="" alt="" />
-              <p>가연성</p>
-            </a>
-          </div>
-          <div className="item">
-            <a href="">
-              <img src="" alt="" />
-              <p>불연성</p>
-            </a>
-          </div>
-          <div className="item">
-            <a href="">
-              <img src="" alt="" />
-              <p>자원류</p>
-            </a>
-          </div>
-          <div className="item">
-            <a href="">
-              <img src="" alt="" />
-              <p>가전</p>
-            </a>
-          </div>
-          <div className="item">
-            <a href="">
-              <img src="" alt="" />
-              <p>대형</p>
-            </a>
-          </div>
-          <div className="item">
-            <a href="">
-              <img src="" alt="" />
-              <p>유해</p>
-            </a>
-          </div>
-        </div>
+        <QuickCategoryList quickCategory={quickCategory} />
       </div>
     </div>
   );

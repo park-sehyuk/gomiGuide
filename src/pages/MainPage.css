@@ -10,18 +10,8 @@
   margin-bottom: 50px;
 }
 
-.RegionSelect {
-  margin-bottom: 60px;
-}
-
-.Infos {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-}
-
 .GomiSearch input {
-  width: 360px;
+  width: 500px;
   height: 40px;
   padding-left: 15px;
   padding-right: 15px;
@@ -30,15 +20,22 @@
 
 .GomiSearch button {
   position: absolute;
-  top: 4px;
+  top: 9px;
   right: 5px;
-  width: 36px;
-  height: 36px;
+  width: 26px;
+  height: 26px;
   margin-left: 10px;
-  border: 1px solid #000;
+  background-image: url("../../public/icon/search.png");
+  text-indent: -9999px;
 }
 
-.WeekInfo .Weekly ul {
+.Infos {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 60px;
+}
+
+.QuickCategoryPage h2 {
+  margin-bottom: 15px;
 }
