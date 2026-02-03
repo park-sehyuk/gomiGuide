@@ -1,0 +1,28 @@
+.SearchResultPage {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SearchResultPage .Result {
+  margin-bottom: 30px;
+}
+
+.SearchResultPage .ResultCategory {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-bottom: 60px;
+}
+
+.SearchResultPage .DischargeMethod {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.SearchResultPage .DischargeMethod h2 {
+  margin-bottom: 15px;
+}

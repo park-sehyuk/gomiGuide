@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   TokyoMap,
   TodayInfo,
@@ -27,9 +28,22 @@ const week = [
 ];
 
 const MainPage = () => {
+  // 검색 관리
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  // 지역 선택 관리
   const [selected, setSelected] = useState(null);
+  // 주간 일정 관리
   const [weekInfo, setWeekInfo] = useState(week);
+  // 퀵메뉴 관리
   const [quickCategory, setQuickCategory] = useState(categoryData);
+
+  const handleSearch = () => {
+    if (search.trim() !== "") {
+      navigate(`/search?query=${encodeURIComponent(search)}`);
+    }
+  };
 
   return (
     <div className="Main">
@@ -37,8 +51,9 @@ const MainPage = () => {
         <input
           type="text"
           placeholder="무엇을 버리시나요?(예: 우산, 건전지등)"
+          onChange={(e) => setSearch(e.target.value)}
         />
-        <button>검색</button>
+        <button onClick={handleSearch}>검색</button>
       </div>
       <div className="RegionSelectPage">
         <div className="MapSelect">
