@@ -5,10 +5,23 @@
   padding-bottom: 50px;
   border-bottom: 1px solid #000;
 }
+
 .header a {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50px;
   height: 50px;
+  color: #000;
+}
+
+.header a img {
+  width: 100%;
+  height: auto;
+}
+
+.header a p {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
 }

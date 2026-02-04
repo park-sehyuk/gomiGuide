@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {
   TokyoMap,
@@ -8,26 +9,20 @@ import {
 } from "../conponents/mainPage";
 import "./MainPage.css";
 
-const categoryData = [
-  { id: 1, name: "가연성", iconUrl: "../../public/icon/가연성.png" },
-  { id: 2, name: "불연성", iconUrl: "../../public/icon/불연성.png" },
-  { id: 3, name: "자원류", iconUrl: "../../public/icon/자원류.png" },
-  { id: 4, name: "가전", iconUrl: "../../public/icon/가전.png" },
-  { id: 5, name: "대형", iconUrl: "../../public/icon/대형.png" },
-  { id: 6, name: "유해", iconUrl: "../../public/icon/유해.png" },
-];
-
 const week = [
-  { id: 1, name: "월", imgUrl: "../../public/icon/가연성.png" },
-  { id: 2, name: "화", imgUrl: "../../public/icon/가연성.png" },
-  { id: 3, name: "수", imgUrl: "../../public/icon/불연성.png" },
-  { id: 4, name: "목", imgUrl: "../../public/icon/가전.png" },
-  { id: 5, name: "금", imgUrl: "../../public/icon/가연성.png" },
-  { id: 6, name: "토", imgUrl: "../../public/icon/대형.png" },
-  { id: 7, name: "일", imgUrl: "../../public/icon/자원류.png" },
+  { id: 1, name: "월", imgUrl: "icon/burn.png" },
+  { id: 2, name: "화", imgUrl: "icon/burn.png" },
+  { id: 3, name: "수", imgUrl: "icon/non-burn.png" },
+  { id: 4, name: "목", imgUrl: "icon/appliances.png" },
+  { id: 5, name: "금", imgUrl: "icon/burn.png" },
+  { id: 6, name: "토", imgUrl: "icon/sodai.png" },
+  { id: 7, name: "일", imgUrl: "icon/resource.png" },
 ];
 
 const MainPage = () => {
+  const [isReady, setIsReady] = useState(false);
+  const [categoryData, setCategoryData] = useState([]);
+
   // 검색 관리
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
@@ -36,14 +31,37 @@ const MainPage = () => {
   const [selected, setSelected] = useState(null);
   // 주간 일정 관리
   const [weekInfo, setWeekInfo] = useState(week);
-  // 퀵메뉴 관리
-  const [quickCategory, setQuickCategory] = useState(categoryData);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`/data/categoryData.json`);
+      setCategoryData(response.data);
+    } catch (e) {
+      console.error("Error fetching category data:", e);
+    } finally {
+      setIsReady(true);
+    }
+  };
 
   const handleSearch = () => {
     if (search.trim() !== "") {
       navigate(`/search?query=${encodeURIComponent(search)}`);
     }
   };
+
+  const handleEnter = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+  if (!isReady) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="Main">
@@ -52,6 +70,7 @@ const MainPage = () => {
           type="text"
           placeholder="무엇을 버리시나요?(예: 우산, 건전지등)"
           onChange={(e) => setSearch(e.target.value)}
+          onKeyDown={handleEnter}
         />
         <button onClick={handleSearch}>검색</button>
       </div>
@@ -73,7 +92,7 @@ const MainPage = () => {
       </div>
       <div className="QuickCategoryPage">
         <h2>퀵 메뉴 (Category)</h2>
-        <QuickCategoryList quickCategory={quickCategory} />
+        <QuickCategoryList quickCategory={categoryData} />
       </div>
     </div>
   );

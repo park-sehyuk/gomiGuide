@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import "./QuickCategoryItem.css";
 
 const QuickCategoryItme = ({ categoryItem }) => {
   return (
     <div className="QuickCategoryItem">
-      <a href="">
+      <Link to={`/quickCategory/${categoryItem.name}`}>
         <img src={categoryItem.iconUrl} alt={categoryItem.name} />
         <p>{categoryItem.name}</p>
-      </a>
+      </Link>
     </div>
   );
 };

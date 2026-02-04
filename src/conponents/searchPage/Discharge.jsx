@@ -1,12 +1,12 @@
 import { useState, useEffect, use } from "react";
 import "./Discharge.css";
 
-const Discharge = ({ filteredMethod }) => {
+const Discharge = ({ filteredItem }) => {
   const [description, setDescription] = useState([]);
 
   useEffect(() => {
-    setDescription(filteredMethod[0].description);
-  }, [filteredMethod]);
+    setDescription(filteredItem[0].description);
+  }, [filteredItem]);
 
   return (
     <div className="Discharge">

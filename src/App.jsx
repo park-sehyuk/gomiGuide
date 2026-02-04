@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { Header } from "./conponents";
-import { MainPage, SearchResultPage } from "./pages";
+import {
+  MainPage,
+  SearchDetailPage,
+  SearchResultPage,
+  QuickCategoryPage,
+} from "./pages";
 import "./App.css";
 
 const LayOut = () => {
@@ -23,6 +28,11 @@ function App() {
           <Route element={<LayOut />} path="/">
             <Route element={<MainPage />} index />
             <Route element={<SearchResultPage />} path="search" />
+            <Route element={<SearchDetailPage />} path="detail/:id" />
+            <Route
+              element={<QuickCategoryPage />}
+              path="quickCategory/:category"
+            />
           </Route>
         </Routes>
       </BrowserRouter>

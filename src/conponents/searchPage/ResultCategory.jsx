@@ -1,11 +1,11 @@
 import "./ReslutCategory.css";
 
-const ResultCategory = ({ filteredMethod }) => {
+const ResultCategory = ({ filteredItem }) => {
   return (
     <div className="Category">
-      <img src={filteredMethod[0].iconUrl} alt={filteredMethod[0].categoryKo} />
+      <img src={filteredItem[0].iconUrl} alt={filteredItem[0].categoryKo} />
       <p>
-        {filteredMethod[0].categoryKo}({filteredMethod[0].categoryJp})
+        {filteredItem[0].categoryKo}({filteredItem[0].categoryJp})
       </p>
     </div>
   );

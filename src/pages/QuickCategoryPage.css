@@ -1,0 +1,9 @@
+.QuickCategoryPage .CategoryInfoPage {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.QuickCategoryPage .GomiListPage {
+  margin-bottom: 60px;
+}
