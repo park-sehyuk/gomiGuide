@@ -1,6 +1,7 @@
 .header {
   display: flex;
   justify-content: center;
+  position: relative;
   padding-top: 50px;
   padding-bottom: 50px;
   border-bottom: 1px solid #000;
@@ -23,5 +24,17 @@
 .header a p {
   margin-top: 10px;
   font-size: 18px;
+  font-weight: bold;
+}
+.header .Language {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 70px;
+  right: 120px;
+}
+
+.header .Language button {
+  font-size: 20px;
   font-weight: bold;
 }

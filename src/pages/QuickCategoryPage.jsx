@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import { CategoryInfo, GomiList } from "../conponents/quickCategoryPage";
+import {
+  CategoryInfo,
+  GomiList,
+  DischargeInfo,
+} from "../conponents/quickCategoryPage";
 import "./QuickCategoryPage.css";
 
 const QuickCategoryPage = () => {
   const { category } = useParams();
   const [isReady, setIsReady] = useState(false);
+  const navigate = useNavigate();
 
   const [gomiData, setGomiData] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
@@ -33,11 +38,13 @@ const QuickCategoryPage = () => {
     (item) => item.categoryKo === category + " 쓰레기",
   );
 
-  console.log(filteredGomiData);
-
   const filteredCategoryData = categoryData.filter(
     (item) => item.name === category,
   );
+
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   if (!isReady) {
     return <div>Loading...</div>;
@@ -47,8 +54,14 @@ const QuickCategoryPage = () => {
       <div className="CategoryInfoPage">
         <CategoryInfo category={filteredCategoryData} />
       </div>
+      <div className="DischargeData">
+        <DischargeInfo />
+      </div>
       <div className="GomiListPage">
         <GomiList gomiList={filteredGomiData} />
+      </div>
+      <div className="BackButton">
+        <button onClick={handleBack}>뒤로가기</button>
       </div>
     </div>
   );

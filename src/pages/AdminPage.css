@@ -1,0 +1,24 @@
+.AdminPage {
+  display: flex;
+}
+
+.AdminPage .LeftBar {
+  width: 80px;
+  height: auto;
+  border-right: 1px solid #000;
+  padding: 10px;
+}
+
+.AdminPage .LeftBar img {
+  width: 80px;
+  height: 80px;
+}
+
+.AdminPage .RightContent {
+  margin-top: 300px;
+  margin-left: 500px;
+}
+
+.AdminPage .RightContent p {
+  font-size: 34px;
+}

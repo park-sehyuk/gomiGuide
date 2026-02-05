@@ -6,6 +6,7 @@ import {
   SearchDetailPage,
   SearchResultPage,
   QuickCategoryPage,
+  AdminPage,
 } from "./pages";
 import "./App.css";
 
@@ -33,6 +34,7 @@ function App() {
               element={<QuickCategoryPage />}
               path="quickCategory/:category"
             />
+            <Route element={<AdminPage />} path="admin" />
           </Route>
         </Routes>
       </BrowserRouter>
