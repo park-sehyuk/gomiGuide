@@ -1,20 +1,19 @@
+import { NavLink, Outlet } from "react-router-dom";
 import "./AdminPage.css";
 const AdminPage = () => {
   return (
-    <div className="AdminPage">
-      <div className="LeftBar">
-        <div className="Region">
-          <img src="/icon/region.png" alt="지역" />
-          <p>지역</p>
-        </div>
-        <div className="gomi">
-          <img src="/icon/gomi.png" alt="쓰레기" />
-          <p>쓰레기</p>
-        </div>
+    <div className="AdminLayout">
+      <div className="Sidebar">
+        <NavLink to="Dashboard">대시보드</NavLink>
+        <NavLink to="Items">품목 관리</NavLink>
+        <NavLink to="Areas">지역/요일</NavLink>
+        <NavLink to="Logs">로그</NavLink>
+        <NavLink to="Settings">설정</NavLink>
       </div>
-      <div className="RightContent">
-        <p>정영재관리자님 어서오세요~!!</p>
-      </div>
+
+      <main className="AdminMain">
+        <Outlet />
+      </main>
     </div>
   );
 };

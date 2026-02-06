@@ -1,0 +1,104 @@
+.TableWrap {
+  background: var(--Card);
+  border-radius: var(--Radius);
+  box-shadow: var(--Shadow);
+  border: 1px solid var(--BorderSoft);
+  overflow: hidden;
+}
+
+.Table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Table thead th {
+  text-align: left;
+  padding: 12px 14px;
+  background: #fafafa;
+  border-bottom: 1px solid var(--Border);
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.Table tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--BorderSoft);
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.Table tbody tr:hover td {
+  background: #fcfcfc;
+}
+
+.Empty {
+  padding: 22px;
+  text-align: center;
+  color: var(--Muted);
+}
+
+/* Small UI pieces */
+.Badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  border: 1px solid var(--BorderSoft);
+  font-size: 12px;
+  color: #374151;
+}
+
+.Link {
+  color: var(--Link);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.Link:hover {
+  text-decoration: underline;
+}
+
+.Actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Action buttons */
+.SmallBtn {
+  padding: 8px 10px;
+  border-radius: var(--RadiusSmall);
+  border: 1px solid var(--Border);
+  background: var(--Card);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.SmallBtn:hover {
+  background: #fafafa;
+}
+
+.DangerBtn {
+  padding: 8px 10px;
+  border-radius: var(--RadiusSmall);
+  border: 1px solid var(--DangerBorder);
+  background: var(--Card);
+  color: var(--Danger);
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.DangerBtn:hover {
+  background: #fff5f5;
+}
+
+/* Monospace */
+.Mono {
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 13px;
+  color: #374151;
+}

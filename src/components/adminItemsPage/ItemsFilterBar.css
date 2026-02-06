@@ -1,0 +1,51 @@
+.FilterBar {
+  display: flex;
+  gap: var(--Gap);
+  align-items: center;
+  flex-wrap: wrap;
+
+  background: var(--Card);
+  padding: 14px;
+  border-radius: var(--Radius);
+  box-shadow: var(--Shadow);
+  border: 1px solid var(--BorderSoft);
+
+  margin-bottom: 16px;
+}
+
+.SearchInput {
+  flex: 1;
+  min-width: 240px;
+
+  padding: 10px 12px;
+  border: 1px solid var(--Border);
+  border-radius: var(--RadiusSmall);
+  outline: none;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.SearchInput:focus {
+  border-color: #c7d2fe;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.Select {
+  padding: 10px 12px;
+  border: 1px solid var(--Border);
+  border-radius: var(--RadiusSmall);
+  background: var(--Card);
+  outline: none;
+}
+
+.CountBox {
+  margin-left: auto;
+  color: #374151;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: #f3f4f6;
+  border: 1px solid var(--BorderSoft);
+}

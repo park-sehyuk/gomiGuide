@@ -1,0 +1,16 @@
+.Card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.CardLabel {
+  color: #888;
+  font-size: 14px;
+}
+
+.Card h2 {
+  font-size: 28px;
+  margin-top: 8px;
+}

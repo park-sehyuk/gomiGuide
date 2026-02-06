@@ -1,0 +1,22 @@
+.Dashboard {
+  padding: 24px;
+}
+
+.DashboardTitle {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.DashboardCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.RecentBox {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}

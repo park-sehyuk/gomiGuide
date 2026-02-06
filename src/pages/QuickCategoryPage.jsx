@@ -6,7 +6,7 @@ import {
   CategoryInfo,
   GomiList,
   DischargeInfo,
-} from "../conponents/quickCategoryPage";
+} from "../components/quickCategoryPage";
 import "./QuickCategoryPage.css";
 
 const QuickCategoryPage = () => {

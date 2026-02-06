@@ -5,7 +5,7 @@ import {
   ResultCategory,
   Discharge,
   OfficialLink,
-} from "../conponents/searchPage";
+} from "../components/searchPage";
 import "./SearchDetailPage.css";
 
 const SearchDetailPage = () => {

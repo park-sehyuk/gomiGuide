@@ -1,0 +1,12 @@
+.Pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.PageInfo {
+  color: #6b7280;
+  font-weight: 600;
+}

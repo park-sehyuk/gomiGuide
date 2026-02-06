@@ -6,7 +6,7 @@ import {
   TodayInfo,
   WeekInfo,
   QuickCategoryList,
-} from "../conponents/mainPage";
+} from "../components/mainPage";
 import "./MainPage.css";
 
 const week = [

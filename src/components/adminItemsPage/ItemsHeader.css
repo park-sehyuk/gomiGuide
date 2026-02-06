@@ -1,0 +1,61 @@
+.AdminItemsHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.Title {
+  font-size: 26px;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.2px;
+}
+
+.Sub {
+  margin: 6px 0 0;
+  color: var(--Muted);
+  font-size: 14px;
+}
+/* Buttons */
+.PrimaryBtn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: var(--Radius);
+  background: var(--Primary);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  transition:
+    transform 0.06s ease,
+    opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.PrimaryBtn:hover {
+  background: var(--PrimaryHover);
+}
+
+.PrimaryBtn:active {
+  transform: translateY(1px);
+}
+
+.GhostBtn {
+  padding: 10px 12px;
+  border-radius: var(--Radius);
+  background: var(--Card);
+  border: 1px solid var(--Border);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.GhostBtn:hover {
+  background: #fafafa;
+}
+
+.GhostBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

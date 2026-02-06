@@ -1,24 +1,24 @@
-.AdminPage {
+.AdminLayout .Sidebar {
   display: flex;
-}
-
-.AdminPage .LeftBar {
-  width: 80px;
-  height: auto;
-  border-right: 1px solid #000;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 50px;
   padding: 10px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 60px;
 }
 
-.AdminPage .LeftBar img {
-  width: 80px;
-  height: 80px;
+.AdminLayout .Sidebar a {
+  font-size: 24px;
+  color: #000;
 }
 
-.AdminPage .RightContent {
-  margin-top: 300px;
-  margin-left: 500px;
+.AdminLayout .Sidebar a.active {
+  font-weight: bold;
+  border-bottom: 2px solid #000;
 }
 
-.AdminPage .RightContent p {
-  font-size: 34px;
+.AdminLayout .AdminMain {
+  padding: 0 30px;
 }
