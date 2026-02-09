@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, use } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -22,6 +22,7 @@ import {
   AdminSettingsPage,
 } from "./pages/admin";
 import "./App.css";
+import axios from "axios";
 
 const LayOut = () => {
   return (
@@ -33,7 +34,16 @@ const LayOut = () => {
 };
 
 function App() {
-  const [count, setCount] = useState(0);
+  useEffect(() => {
+    axios
+      .get("/api/gomi")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   return (
     <div id="App">
