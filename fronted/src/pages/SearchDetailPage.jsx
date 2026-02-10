@@ -43,7 +43,7 @@ const SearchDetailPage = () => {
   return (
     <div className="SearchDetailPage">
       <div className="Result">
-        <h1>{filteredItem.nameKo}</h1>
+        <h1>{filteredItem[0]?.nameKo}</h1>
       </div>
       <div className="ResultCategory">
         <ResultCategory filteredItem={filteredItem} />

@@ -1,4 +1,4 @@
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -20,6 +20,7 @@ import {
   AdminItemsPage,
   AdminLogsPage,
   AdminSettingsPage,
+  AdminLoginPage,
 } from "./pages/admin";
 import "./App.css";
 import axios from "axios";
@@ -68,6 +69,7 @@ function App() {
             <Route path="areas" element={<AdminAreasPage />} />
             <Route path="logs" element={<AdminLogsPage />} />
             <Route path="settings" element={<AdminSettingsPage />} />
+            <Route path="login" element={<AdminLoginPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
