@@ -1,0 +1,662 @@
+[
+  {
+    "id": 1,
+    "nameKo": "프라이팬",
+    "nameJp": "フライパン",
+    "categoryKo": "불연성 쓰레기",
+    "categoryJp": "不燃ごみ",
+    "iconUrl": "/icon/non-burn.png",
+    "color": "#3498db",
+    "description": [
+      "음식물 찌꺼기와 기름때를 닦아내기",
+      "손잡이가 분리되면 분리해 부피 줄이기",
+      "지름 30cm 미만이면 불연성 쓰레기로 배출",
+      "날카로운 부분이 있으면 종이로 감싸 '위험' 표시"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 2,
+    "nameKo": "음식물 쓰레기",
+    "nameJp": "生ごみ",
+    "categoryKo": "가연성 쓰레기",
+    "categoryJp": "燃えるごみ",
+    "iconUrl": "/icon/burn.png",
+    "color": "#e74c3c",
+    "description": [
+      "국물과 물기를 최대한 제거하기",
+      "젖은 키친타월/거름망으로 물기 한 번 더 제거하기",
+      "전용 봉투에 담아 새지 않게 묶기",
+      "지정된 수거 요일에 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 3,
+    "nameKo": "나무 젓가락",
+    "nameJp": "割り箸",
+    "categoryKo": "가연성 쓰레기",
+    "categoryJp": "燃えるごみ",
+    "iconUrl": "/icon/burn.png",
+    "color": "#e74c3c",
+    "description": [
+      "남은 음식물을 털어내기",
+      "길이가 길면 반으로 부러뜨려 부피 줄이기",
+      "봉투에 넣어 가연성 쓰레기로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 4,
+    "nameKo": "유리 컵",
+    "nameJp": "ガラスコップ",
+    "categoryKo": "불연성 쓰레기",
+    "categoryJp": "不燃ごみ",
+    "iconUrl": "/icon/non-burn.png",
+    "color": "#3498db",
+    "description": [
+      "내용물을 비우고 가볍게 헹구기",
+      "신문지나 두꺼운 종이로 단단히 감싸기",
+      "겉면에 '위험' 표시하기",
+      "불연성 쓰레기 배출일에 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 5,
+    "nameKo": "플라스틱 병",
+    "nameJp": "ペットボトル",
+    "categoryKo": "자원 쓰레기",
+    "categoryJp": "資源ごみ",
+    "iconUrl": "/icon/resource.png",
+    "color": "#2ecc71",
+    "description": [
+      "내용물을 비우기",
+      "물로 내부를 헹구기",
+      "라벨을 제거하기",
+      "뚜껑을 분리하고 압축해 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 6,
+    "nameKo": "전자레인지",
+    "nameJp": "電子レンジ",
+    "categoryKo": "대형 쓰레기",
+    "categoryJp": "粗大ごみ",
+    "iconUrl": "/icon/sodai.png",
+    "color": "#e67e22",
+    "description": [
+      "대형 쓰레기 수거 예약을 신청하기",
+      "처리권(스티커)을 구입해 눈에 띄게 부착하기",
+      "지정된 날짜/장소에 배출하기"
+    ],
+    "isSodai": true,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 7,
+    "nameKo": "스프레이 캔",
+    "nameJp": "スプレー缶",
+    "categoryKo": "유해 쓰레기",
+    "categoryJp": "有害ごみ",
+    "iconUrl": "/icon/danger.png",
+    "color": "#95a5a6",
+    "description": [
+      "내용물을 끝까지 사용하기",
+      "환기가 잘 되는 곳에서 가스를 완전히 빼기",
+      "구멍을 뚫지 말고 전용 수거 기준에 따라 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 8,
+    "nameKo": "컴퓨터 본체",
+    "nameJp": "パソコン本体",
+    "categoryKo": "대형 쓰레기",
+    "categoryJp": "粗大ごみ",
+    "iconUrl": "/icon/sodai.png",
+    "color": "#e67e22",
+    "description": [
+      "저장된 개인정보/계정을 초기화 또는 삭제하기",
+      "대형 쓰레기 수거 예약을 신청하기",
+      "처리권 부착 후 지정 장소에 배출하기"
+    ],
+    "isSodai": true,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+
+  {
+    "id": 9,
+    "nameKo": "냄비",
+    "nameJp": "鍋",
+    "categoryKo": "불연성 쓰레기",
+    "categoryJp": "不燃ごみ",
+    "iconUrl": "/icon/non-burn.png",
+    "color": "#3498db",
+    "description": [
+      "내용물과 기름때를 제거하기",
+      "유리뚜껑이 있으면 분리해 따로 포장하기",
+      "날카로운 부분은 종이로 감싸기",
+      "불연성 쓰레기 배출일에 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 10,
+    "nameKo": "도자기 그릇",
+    "nameJp": "陶器",
+    "categoryKo": "불연성 쓰레기",
+    "categoryJp": "不燃ごみ",
+    "iconUrl": "/icon/non-burn.png",
+    "color": "#3498db",
+    "description": [
+      "음식물을 비우고 가볍게 헹구기",
+      "깨졌다면 신문지로 감싸기",
+      "'위험' 표시 후 배출하기",
+      "불연성 쓰레기 배출일에 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 11,
+    "nameKo": "백열 전구",
+    "nameJp": "白熱電球",
+    "categoryKo": "불연성 쓰레기",
+    "categoryJp": "不燃ごみ",
+    "iconUrl": "/icon/non-burn.png",
+    "color": "#3498db",
+    "description": [
+      "전구가 뜨거우면 식힌 후 분리하기",
+      "구매 시 상자나 완충재에 넣기",
+      "깨질 위험이 있으면 '위험' 표시하기",
+      "불연성 쓰레기로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 12,
+    "nameKo": "형광등",
+    "nameJp": "蛍光管",
+    "categoryKo": "유해 쓰레기",
+    "categoryJp": "有害ごみ",
+    "iconUrl": "/icon/danger.png",
+    "color": "#95a5a6",
+    "description": [
+      "깨지지 않게 원래 케이스/종이로 포장하기",
+      "테이프로 고정해 흔들림 줄이기",
+      "전용 수거함/지정 배출 방식 확인 후 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 13,
+    "nameKo": "건전지",
+    "nameJp": "乾電池",
+    "categoryKo": "유해 쓰레기",
+    "categoryJp": "有害ごみ",
+    "iconUrl": "/icon/danger.png",
+    "color": "#95a5a6",
+    "description": [
+      "단자(+)와(-)가 닿지 않게 테이프로 감싸기",
+      "전용 수거함 위치를 확인하기",
+      "지정된 방식으로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+
+  {
+    "id": 14,
+    "nameKo": "우유팩",
+    "nameJp": "牛乳パック",
+    "categoryKo": "자원 쓰레기",
+    "categoryJp": "資源ごみ",
+    "iconUrl": "/icon/resource.png",
+    "color": "#2ecc71",
+    "description": [
+      "팩 내부를 물로 깨끗이 헹구기",
+      "완전히 펼치기",
+      "물기 제거 후 말리기",
+      "자원 쓰레기 배출일에 묶어서 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 15,
+    "nameKo": "맥주 캔",
+    "nameJp": "ビール缶",
+    "categoryKo": "자원 쓰레기",
+    "categoryJp": "資源ごみ",
+    "iconUrl": "/icon/resource.png",
+    "color": "#2ecc71",
+    "description": [
+      "내용물을 비우기",
+      "물로 한 번 헹구기",
+      "가능하면 가볍게 압축하기",
+      "자원 쓰레기 배출일에 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 16,
+    "nameKo": "통조림 캔",
+    "nameJp": "空き缶",
+    "categoryKo": "자원 쓰레기",
+    "categoryJp": "資源ごみ",
+    "iconUrl": "/icon/resource.png",
+    "color": "#2ecc71",
+    "description": [
+      "내용물을 비우고 헹구기",
+      "뚜껑이 날카로우면 종이로 감싸기",
+      "캔류 분리배출함에 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 17,
+    "nameKo": "와인 병",
+    "nameJp": "ワイン瓶",
+    "categoryKo": "자원 쓰레기",
+    "categoryJp": "資源ごみ",
+    "iconUrl": "/icon/resource.png",
+    "color": "#2ecc71",
+    "description": [
+      "내용물을 비우고 헹구기",
+      "금속 캡은 분리하기",
+      "라벨은 제거하지 않아도 되는 경우가 많음",
+      "병류 배출 기준에 맞게 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+
+  {
+    "id": 18,
+    "nameKo": "신문지",
+    "nameJp": "新聞紙",
+    "categoryKo": "자원 쓰레기",
+    "categoryJp": "資源ごみ",
+    "iconUrl": "/icon/resource.png",
+    "color": "#2ecc71",
+    "description": [
+      "물기와 오염이 없는지 확인하기",
+      "같은 방향으로 가지런히 모으기",
+      "끈으로 단단히 묶기",
+      "지정 배출일에 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 19,
+    "nameKo": "골판지 상자",
+    "nameJp": "段ボール",
+    "categoryKo": "자원 쓰레기",
+    "categoryJp": "資源ごみ",
+    "iconUrl": "/icon/resource.png",
+    "color": "#2ecc71",
+    "description": [
+      "테이프와 스티커를 제거하기",
+      "상자를 펼쳐서 접기",
+      "끈으로 묶기",
+      "종이류 배출 기준에 맞게 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 20,
+    "nameKo": "잡지",
+    "nameJp": "雑誌",
+    "categoryKo": "자원 쓰레기",
+    "categoryJp": "資源ごみ",
+    "iconUrl": "/icon/resource.png",
+    "color": "#2ecc71",
+    "description": [
+      "부록(플라스틱/금속)이 있으면 먼저 분리하기",
+      "잡지를 평평하게 모으기",
+      "끈으로 묶어서 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+
+  {
+    "id": 21,
+    "nameKo": "비닐봉지",
+    "nameJp": "ビニール袋",
+    "categoryKo": "가연성 쓰레기",
+    "categoryJp": "燃えるごみ",
+    "iconUrl": "/icon/burn.png",
+    "color": "#e74c3c",
+    "description": [
+      "내용물을 완전히 비우기",
+      "오염이 심하면 세척하지 말고 그대로 배출하기",
+      "봉투에 넣어 가연성 쓰레기로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 22,
+    "nameKo": "티슈",
+    "nameJp": "ティッシュ",
+    "categoryKo": "가연성 쓰레기",
+    "categoryJp": "燃えるごみ",
+    "iconUrl": "/icon/burn.png",
+    "color": "#e74c3c",
+    "description": [
+      "물기나 오염이 있는 상태 그대로 버리기",
+      "봉투에 넣어 가연성 쓰레기로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 23,
+    "nameKo": "휴지심",
+    "nameJp": "トイレットペーパー芯",
+    "categoryKo": "가연성 쓰레기",
+    "categoryJp": "燃えるごみ",
+    "iconUrl": "/icon/burn.png",
+    "color": "#e74c3c",
+    "description": [
+      "이물질이 없으면 그대로 배출하기",
+      "부피가 크면 눌러서 줄이기",
+      "가연성 쓰레기로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 24,
+    "nameKo": "기저귀",
+    "nameJp": "紙おむつ",
+    "categoryKo": "가연성 쓰레기",
+    "categoryJp": "燃えるごみ",
+    "iconUrl": "/icon/burn.png",
+    "color": "#e74c3c",
+    "description": [
+      "오물은 변기에 먼저 처리하기",
+      "기저귀를 봉투에 넣어 냄새가 새지 않게 묶기",
+      "가연성 쓰레기 배출일에 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+
+  {
+    "id": 25,
+    "nameKo": "우산",
+    "nameJp": "傘",
+    "categoryKo": "불연성 쓰레기",
+    "categoryJp": "不燃ごみ",
+    "iconUrl": "/icon/non-burn.png",
+    "color": "#3498db",
+    "description": [
+      "가능하면 천과 뼈대를 분리하기",
+      "끝이 날카로우면 종이로 감싸기",
+      "불연성 쓰레기 기준에 맞게 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 26,
+    "nameKo": "알루미늄 호일",
+    "nameJp": "アルミホイル",
+    "categoryKo": "불연성 쓰레기",
+    "categoryJp": "不燃ごみ",
+    "iconUrl": "/icon/non-burn.png",
+    "color": "#3498db",
+    "description": [
+      "음식물 오염 여부를 확인하기",
+      "오염이 심하면 가연성으로 분류될 수 있음",
+      "오염이 적으면 불연성으로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+
+  {
+    "id": 27,
+    "nameKo": "소파",
+    "nameJp": "ソファー",
+    "categoryKo": "대형 쓰레기",
+    "categoryJp": "粗大ごみ",
+    "iconUrl": "/icon/sodai.png",
+    "color": "#e67e22",
+    "description": [
+      "대형 쓰레기 수거 예약 신청하기",
+      "처리권을 구입해 부착하기",
+      "지정된 날짜에 지정 장소로 배출하기"
+    ],
+    "isSodai": true,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 28,
+    "nameKo": "자전거",
+    "nameJp": "自転車",
+    "categoryKo": "대형 쓰레기",
+    "categoryJp": "粗大ごみ",
+    "iconUrl": "/icon/sodai.png",
+    "color": "#e67e22",
+    "description": [
+      "가능하면 방범 등록 해지를 진행하기",
+      "대형 쓰레기 수거 예약 신청하기",
+      "처리권 부착 후 배출하기"
+    ],
+    "isSodai": true,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 29,
+    "nameKo": "침대 프레임",
+    "nameJp": "ベッドフレーム",
+    "categoryKo": "대형 쓰레기",
+    "categoryJp": "粗大ごみ",
+    "iconUrl": "/icon/sodai.png",
+    "color": "#e67e22",
+    "description": [
+      "분해 여부와 관계없이 대형 분류인지 확인하기",
+      "대형 쓰레기 수거 예약 신청하기",
+      "처리권 부착 후 배출하기"
+    ],
+    "isSodai": true,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 30,
+    "nameKo": "이불",
+    "nameJp": "布団",
+    "categoryKo": "대형 쓰레기",
+    "categoryJp": "粗大ごみ",
+    "iconUrl": "/icon/sodai.png",
+    "color": "#e67e22",
+    "description": [
+      "이불을 말아 부피를 줄이기",
+      "끈으로 단단히 묶기",
+      "대형 쓰레기 기준에 따라 예약 후 배출하기"
+    ],
+    "isSodai": true,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+
+  {
+    "id": 31,
+    "nameKo": "책상",
+    "nameJp": "机",
+    "categoryKo": "대형 쓰레기",
+    "categoryJp": "粗大ごみ",
+    "iconUrl": "/icon/sodai.png",
+    "color": "#e67e22",
+    "description": [
+      "서랍/유리 등 분리 가능한 부품 분리하기",
+      "대형 쓰레기 수거 예약 신청하기",
+      "처리권 부착 후 배출하기"
+    ],
+    "isSodai": true,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+
+  {
+    "id": 32,
+    "nameKo": "고무 장갑",
+    "nameJp": "ゴム手袋",
+    "categoryKo": "가연성 쓰레기",
+    "categoryJp": "燃えるごみ",
+    "iconUrl": "/icon/burn.png",
+    "color": "#e74c3c",
+    "description": [
+      "오염이 심하면 세척하지 않고 바로 배출하기",
+      "봉투에 넣어 가연성 쓰레기로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 33,
+    "nameKo": "가죽 구두",
+    "nameJp": "革靴",
+    "categoryKo": "가연성 쓰레기",
+    "categoryJp": "燃えるごみ",
+    "iconUrl": "/icon/burn.png",
+    "color": "#e74c3c",
+    "description": [
+      "한 켤레씩 묶어 분실 방지하기",
+      "가능하면 흙/오염을 털어내기",
+      "가연성 쓰레기로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+
+  {
+    "id": 34,
+    "nameKo": "페트병 뚜껑",
+    "nameJp": "ペットボトルキャップ",
+    "categoryKo": "자원 쓰레기",
+    "categoryJp": "資源ごみ",
+    "iconUrl": "/icon/resource.png",
+    "color": "#2ecc71",
+    "description": [
+      "뚜껑을 페트병과 분리하기",
+      "이물질이 있으면 가볍게 헹구기",
+      "지정된 플라스틱/자원 분류 기준으로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 35,
+    "nameKo": "페트병 라벨",
+    "nameJp": "ペットボトルラベル",
+    "categoryKo": "가연성 쓰레기",
+    "categoryJp": "燃えるごみ",
+    "iconUrl": "/icon/burn.png",
+    "color": "#e74c3c",
+    "description": [
+      "페트병에서 라벨을 떼기",
+      "오염이 있으면 물로 가볍게 헹구기",
+      "가연성 쓰레기로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+
+  {
+    "id": 36,
+    "nameKo": "종이컵",
+    "nameJp": "紙コップ",
+    "categoryKo": "가연성 쓰레기",
+    "categoryJp": "燃えるごみ",
+    "iconUrl": "/icon/burn.png",
+    "color": "#e74c3c",
+    "description": [
+      "내용물을 비우기",
+      "심한 오염이 있으면 그대로 가연성 배출하기",
+      "부피를 줄여 봉투에 넣기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 37,
+    "nameKo": "종이상자(과자박스)",
+    "nameJp": "紙箱",
+    "categoryKo": "자원 쓰레기",
+    "categoryJp": "資源ごみ",
+    "iconUrl": "/icon/resource.png",
+    "color": "#2ecc71",
+    "description": [
+      "내용물을 비우기",
+      "비닐 코팅/오염이 심하면 가연성으로 분류될 수 있음",
+      "깨끗하면 접어서 종이류로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 38,
+    "nameKo": "라이터",
+    "nameJp": "ライター",
+    "categoryKo": "유해 쓰레기",
+    "categoryJp": "有害ごみ",
+    "iconUrl": "/icon/danger.png",
+    "color": "#95a5a6",
+    "description": [
+      "가스를 끝까지 사용해 비우기",
+      "가스가 남아있다면 지정 배출 규정 확인하기",
+      "전용 수거 방식에 맞춰 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 39,
+    "nameKo": "옷걸이(철제)",
+    "nameJp": "ハンガー(金属)",
+    "categoryKo": "불연성 쓰레기",
+    "categoryJp": "不燃ごみ",
+    "iconUrl": "/icon/non-burn.png",
+    "color": "#3498db",
+    "description": [
+      "플라스틱/고무 부품이 있으면 분리하기",
+      "여러 개는 묶어 흩어지지 않게 하기",
+      "불연성 쓰레기로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  },
+  {
+    "id": 40,
+    "nameKo": "옷걸이(플라스틱)",
+    "nameJp": "ハンガー(プラスチック)",
+    "categoryKo": "가연성 쓰레기",
+    "categoryJp": "燃えるごみ",
+    "iconUrl": "/icon/burn.png",
+    "color": "#e74c3c",
+    "description": [
+      "금속 부품이 있으면 분리하기",
+      "부피가 크면 부러뜨려 줄이기",
+      "가연성 쓰레기로 배출하기"
+    ],
+    "isSodai": false,
+    "officialLink": "https://www.city.shinjuku.lg.jp/seikatsu/index09_02.html"
+  }
+]

@@ -1,0 +1,31 @@
+:root {
+  --Bg: #f6f7fb;
+  --Card: #ffffff;
+  --Text: #111827;
+  --Muted: #6b7280;
+
+  --Border: #e5e7eb;
+  --BorderSoft: #f0f2f5;
+
+  --Shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+
+  --Primary: #111827;
+  --PrimaryHover: #0b1220;
+
+  --Danger: #b91c1c;
+  --DangerBorder: #fecaca;
+
+  --Link: #2563eb;
+
+  --Radius: 14px;
+  --RadiusSmall: 10px;
+
+  --Pad: 24px;
+  --Gap: 12px;
+}
+
+.AdminItems {
+  padding: var(--Pad);
+  color: var(--Text);
+  background: transparent;
+}

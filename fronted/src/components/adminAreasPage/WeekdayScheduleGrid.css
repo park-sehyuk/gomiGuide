@@ -1,0 +1,56 @@
+.ScheduleGrid {
+  border: 1px solid var(--BorderSoft);
+  border-radius: var(--Radius);
+  overflow: hidden;
+}
+
+.GridHead,
+.GridRow {
+  display: grid;
+  grid-template-columns: 120px repeat(7, 1fr);
+}
+
+.GridCell {
+  padding: 10px 10px;
+  border-right: 1px solid var(--BorderSoft);
+  border-bottom: 1px solid var(--BorderSoft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.GridCell.Head {
+  background: #fafafa;
+  font-weight: 800;
+  color: #4b5563;
+}
+
+.GridCell.Type {
+  justify-content: flex-start;
+  font-weight: 800;
+  color: #374151;
+}
+
+.GridCell.Toggle {
+  background: #fff;
+  cursor: pointer;
+  border: none;
+}
+
+.GridCell.Toggle:hover {
+  background: #fafafa;
+}
+.GridCell.Toggle.On {
+  background: #eef2ff;
+}
+
+@media (max-width: 1024px) {
+  .AreasLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .AreaList {
+    max-height: 340px;
+  }
+}

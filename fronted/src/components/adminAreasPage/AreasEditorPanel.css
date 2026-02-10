@@ -1,0 +1,71 @@
+.AreasEditorPanel {
+  background: var(--Card);
+  border-radius: var(--Radius);
+  box-shadow: var(--Shadow);
+  border: 1px solid var(--BorderSoft);
+  padding: 16px;
+  min-height: 420px;
+}
+
+.EmptyEditor {
+  color: var(--Muted);
+  padding: 24px;
+  border: 1px dashed var(--Border);
+  border-radius: var(--Radius);
+  background: #fafafa;
+}
+
+.EditorHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.EditorTitle {
+  margin: 0;
+  font-size: 18px;
+}
+
+.EditorActions {
+  display: flex;
+  gap: 10px;
+}
+
+.EditorForm {
+  display: grid;
+  gap: 14px;
+}
+
+.Field {
+  display: grid;
+  gap: 8px;
+}
+
+.Label {
+  font-size: 13px;
+  color: #4b5563;
+  font-weight: 700;
+}
+
+.TextInput {
+  padding: 10px 12px;
+  border: 1px solid var(--Border);
+  border-radius: var(--RadiusSmall);
+  outline: none;
+}
+
+.Textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--Border);
+  border-radius: var(--RadiusSmall);
+  outline: none;
+  resize: vertical;
+}
+
+.Hint {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--Muted);
+}

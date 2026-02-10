@@ -1,0 +1,29 @@
+.GomiItem {
+  width: 300px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.GomiItem:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.GomiItem a {
+  color: #000;
+}
+
+.GomiItem .ItemInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.GomiItem .ItemInfo img {
+  width: 80px;
+  height: 80px;
+}
