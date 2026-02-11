@@ -41,7 +41,7 @@ public class Categories extends BaseEntity {
     private String iconUrl;
 
     @Column(name = "is_active", nullable = false)
-    private boolean active;
+    private boolean active = true;
 
     public static Categories category(String code, String nameKo, String nameJp, int sortOrder, String colorToken, String iconUrl ,boolean active){
         Categories categories = new Categories();
