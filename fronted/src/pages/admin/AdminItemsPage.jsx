@@ -21,18 +21,19 @@ const AdminItemsPage = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("/data/gomiData.json");
+        const res = await fetch("/api/admin/items");
+        if (!res.ok) throw new Error(`items fetch failed: ${res.status}`);
         const data = await res.json();
         setItems(Array.isArray(data) ? data : []);
       } catch (e) {
-        console.error("gomiData load failed:", e);
+        console.error("items load failed:", e);
         setItems([]);
       }
     })();
   }, []);
 
   const categories = useMemo(() => {
-    const set = new Set(items.map((it) => it.category).filter(Boolean));
+    const set = new Set(items.map((it) => it.categoryNameKo).filter(Boolean));
     return ["all", ...Array.from(set)];
   }, [items]);
 
@@ -40,7 +41,8 @@ const AdminItemsPage = () => {
     const q = query.trim().toLowerCase();
     let arr = items.slice();
 
-    if (category !== "all") arr = arr.filter((it) => it.category === category);
+    if (category !== "all")
+      arr = arr.filter((it) => it.categoryNameKo === category);
 
     if (q) {
       arr = arr.filter((it) => {

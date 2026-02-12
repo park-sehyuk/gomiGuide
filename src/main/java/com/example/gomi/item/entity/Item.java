@@ -3,6 +3,8 @@ package com.example.gomi.item.entity;
 import com.example.gomi.category.entity.Categories;
 import com.example.gomi.entity.BaseEntity;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -54,6 +56,16 @@ public class Item extends BaseEntity {
         return item;
     }
 
+    public static Item of(String nameKo, String nameJp, String description, Categories category) {
+        Item item = new Item();
+        item.nameKo = nameKo;
+        item.nameJp = nameJp;
+        item.description = description;
+        item.categories = category;
+
+        return item;
+    }
+
     public void reName(String nameKo, String nameJp){
         this.nameKo = nameKo;
         this.nameJp = nameJp;
@@ -61,6 +73,10 @@ public class Item extends BaseEntity {
 
     public void changeCategory(Categories categories){
         this.categories = categories;
+    }
+
+    public void changeDescription(String description){
+        this.description = description;
     }
 
     public void changeContent(String description, String officialUrl){

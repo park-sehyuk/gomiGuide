@@ -2,6 +2,7 @@ package com.example.gomi.area.dto;
 
 import com.example.gomi.area.constent.DayOfWeek;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -10,6 +11,7 @@ import java.time.LocalTime;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class AreaRuleDto {
     private Long ruleId;
     private String areaId;

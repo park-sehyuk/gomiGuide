@@ -1,18 +1,21 @@
 package com.example.gomi.item.dto;
 
 import com.example.gomi.item.constent.Language;
-import com.example.gomi.item.entity.ItemSynonym;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CreateItemDto {
 
     @NotBlank
@@ -34,35 +37,19 @@ public class CreateItemDto {
     private Boolean active;
 
     @Valid
-    private List<ItemSynonym> synonyms;
+    private List<CreateItemDto.Synonym> synonyms;
 
-    public CreateItemDto(String nameKo, String nameJp, Long categoryId, String description, String officialUrl, Boolean active, List<ItemSynonym> synonyms){
-        this.nameKo = nameKo;
-        this.nameJp = nameJp;
-        this.categoryId = categoryId;
-        this.description = description;
-        this.officialUrl = officialUrl;
-        this.active = active;
-        this.synonyms = synonyms;
-    }
 
     @Getter
     @Setter
-    public static class Synonym{
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Synonym extends CreateItemDto {
         @NotBlank
         @Size(max = 150)
         private String keyword;
 
         @NotNull
         private Language lang;
-
-        public Synonym(String keyword, Language lang){
-            this.keyword = keyword;
-            this.lang = lang;
-        }
-    }
-
-    public enum Language{
-        KO, JP, ETC
     }
 }

@@ -1,14 +1,15 @@
 package com.example.gomi.category.dto;
 
-import com.example.gomi.area.dto.CreateAreaDto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class CreateCategoryDto {
 
     @NotBlank
