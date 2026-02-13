@@ -29,7 +29,7 @@ const ItemsTable = ({ items, onEdit, onDelete }) => {
                 <td>{it.nameKo ?? "-"}</td>
                 <td>{it.nameJp ?? "-"}</td>
                 <td>
-                  <span className="Badge">{it.category ?? "-"}</span>
+                  <span className="Badge">{it.categoryNameKo ?? "-"}</span>
                 </td>
                 <td>
                   {it.officialLink ? (

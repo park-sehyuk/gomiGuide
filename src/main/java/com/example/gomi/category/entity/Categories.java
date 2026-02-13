@@ -25,10 +25,10 @@ public class Categories extends BaseEntity {
     private String code;
 
     @Column(length = 100, nullable = false)
-    private String nameKo;
+    private String categoryNameKo;
 
     @Column(length = 100, nullable = false)
-    private String nameJp;
+    private String categoryNameJp;
 
     @Column(nullable = false)
     private int sortOrder = 0;
@@ -42,11 +42,11 @@ public class Categories extends BaseEntity {
     @Column(name = "is_active", nullable = false)
     private boolean active = true;
 
-    public static Categories category(String code, String nameKo, String nameJp, int sortOrder, String colorToken, String iconUrl ,boolean active){
+    public static Categories category(String code, String categoryNameKo, String categoryNameJp, int sortOrder, String colorToken, String iconUrl ,boolean active){
         Categories categories = new Categories();
         categories.code = code;
-        categories.nameKo = nameKo;
-        categories.nameJp = nameJp;
+        categories.categoryNameKo = categoryNameKo;
+        categories.categoryNameJp = categoryNameJp;
         categories.sortOrder = sortOrder;
         categories.colorToken = colorToken;
         categories.iconUrl = iconUrl;
@@ -55,9 +55,9 @@ public class Categories extends BaseEntity {
         return categories;
     }
 
-    public void rename(String nameKo, String nameJp) {
-        this.nameKo = nameKo;
-        this.nameJp = nameJp;
+    public void rename(String categoryNameKo, String categoryNameJp) {
+        this.categoryNameKo = categoryNameKo;
+        this.categoryNameJp = categoryNameJp;
     }
 
     public void changeUiToken(String colorToken, String iconUrl) {

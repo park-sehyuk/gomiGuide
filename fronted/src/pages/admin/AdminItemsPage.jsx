@@ -10,7 +10,7 @@ import "./AdminItemsPage.css";
 const AdminItemsPage = () => {
   const [items, setItems] = useState([]);
 
-  const [query, setQuery] = useState("all");
+  const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const [sortKey, setSortKey] = useState("nameKo");
   const [sortDir, setSortDir] = useState("asc");

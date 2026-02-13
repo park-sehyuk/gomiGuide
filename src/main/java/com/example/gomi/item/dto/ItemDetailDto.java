@@ -22,6 +22,8 @@ public class ItemDetailDto {
     private Long categoryId;
     private String categoryCode;
     private String categoryNameKo;
+    private String categoryNameJp;
+    private String iconUrl;
     private String description;
     private String officialUrl;
     private boolean active;
@@ -60,7 +62,9 @@ public class ItemDetailDto {
         if (categories != null) {
             dto.categoryId = categories.getId();
             dto.categoryCode = categories.getCode();
-            dto.categoryNameKo = categories.getNameKo();
+            dto.categoryNameKo = categories.getCategoryNameKo();
+            dto.categoryNameJp = categories.getCategoryNameJp();
+            dto.iconUrl = categories.getIconUrl();
         }
 
         if (synonyms == null || synonyms.isEmpty()) {

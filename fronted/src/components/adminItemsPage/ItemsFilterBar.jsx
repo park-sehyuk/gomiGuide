@@ -38,7 +38,7 @@ const ItemsFilterBar = ({
         onChange={(e) => setSortKey(e.target.value)}
       >
         <option value="nameKo">이름(ko)</option>
-        <option value="category">카테고리</option>
+        <option value="categoryNameKo">카테고리</option>
       </select>
 
       <button className="GhostBtn" onClick={toggleSortDir} title="정렬 방향">

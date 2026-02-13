@@ -4,15 +4,15 @@ import "./SearchItem.css";
 const SearchItem = ({ item }) => {
   return (
     <div className="SearchItemPage">
-      <Link to={`/detail/${item.id}`}>
+      <Link to={`/detail/${item.itemId}`}>
         <div className="ItemInfo">
-          <img src={item.iconUrl} alt={item.categoryKo} />
+          <img src={item.iconUrl} alt={item.categoryNameKo} />
           <div className="ItemText">
             <h2>
               {item.nameKo}({item.nameJp})
             </h2>
             <h3>
-              {item.categoryKo}({item.categoryJp})
+              {item.categoryNameKo}({item.categoryNameJp})
             </h3>
           </div>
         </div>

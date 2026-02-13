@@ -20,6 +20,8 @@ public class ItemListDto {
     private Long categoryId;
     private String categoryCode;
     private String categoryNameKo;
+    private String categoryNameJp;
+    private String iconUrl;
     private boolean active;
     private LocalDateTime updatedAt;
 
@@ -35,7 +37,9 @@ public class ItemListDto {
         if (categories != null) {
             dto.categoryId = categories.getId();
             dto.categoryCode = categories.getCode();
-            dto.categoryNameKo = categories.getNameKo();
+            dto.categoryNameKo = categories.getCategoryNameKo();
+            dto.categoryNameJp = categories.getCategoryNameJp();
+            dto.iconUrl = categories.getIconUrl();
         }
 
         return dto;

@@ -9,32 +9,25 @@ const SearchResultPage = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query") || "";
 
-  const [isReady, setIsReady] = useState(false);
-
   const [dischargeMethods, setDischargeMethods] = useState([]);
 
   useEffect(() => {
-    fetchData();
+    (async () => {
+      try {
+        const res = await fetch("/api/items");
+        if (!res.ok) throw new Error(`items fetch failed: ${res.status}`);
+        const data = await res.json();
+        setDischargeMethods(Array.isArray(data) ? data : []);
+      } catch (e) {
+        console.error("items load failed:", e);
+        setDischargeMethods([]);
+      }
+    })();
   }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`/data/gomiData.json`);
-      setDischargeMethods(response.data);
-    } catch (e) {
-      console.error("Error fetching data:", e);
-    } finally {
-      setIsReady(true);
-    }
-  };
 
   const filteredMethod = dischargeMethods.filter(
     (item) => item.nameKo.includes(query) || item.nameJp.includes(query),
   );
-
-  if (!isReady) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className="SearchResultPage">

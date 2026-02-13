@@ -1,12 +1,17 @@
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import "./Discharge.css";
 
-const Discharge = ({ filteredItem }) => {
+const Discharge = ({ item }) => {
   const [description, setDescription] = useState([]);
 
   useEffect(() => {
-    setDescription(filteredItem[0].description);
-  }, [filteredItem]);
+    const text = item?.description ?? "";
+    const lines = text
+      .split(/[\n\r]+/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+    setDescription(lines);
+  }, [item]);
 
   return (
     <div className="Discharge">

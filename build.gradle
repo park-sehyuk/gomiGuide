@@ -59,3 +59,26 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+def npmCommand = System.getProperty("os.name").toLowerCase().contains("windows")
+		? "npm.cmd"
+		: "/usr/local/bin/npm"
+
+tasks.register("npmInstall", Exec) {
+	workingDir "$projectDir/fronted"
+	commandLine npmCommand, "install"
+}
+
+tasks.register("npmBuild", Exec) {
+	workingDir "$projectDir/fronted"
+	commandLine npmCommand, "run", "build"
+	dependsOn "npmInstall"
+}
+
+tasks.named("processResources", Copy) {
+	dependsOn "npmBuild"
+	from("$projectDir/fronted/dist") {
+		into "static"
+	}
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

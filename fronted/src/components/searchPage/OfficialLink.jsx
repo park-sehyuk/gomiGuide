@@ -1,9 +1,9 @@
 import "./OfficialLink.css";
 
-const OfficialLink = ({ filteredItem }) => {
+const OfficialLink = ({ item }) => {
   return (
     <div className="Official">
-      <a href={filteredItem[0].officialLink}>공식 안내 링크(click)</a>
+      <a href={item.officialUrl}>공식 안내 링크(click)</a>
     </div>
   );
 };
