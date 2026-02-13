@@ -4,9 +4,9 @@ import "./QuickCategoryItem.css";
 const QuickCategoryItme = ({ categoryItem }) => {
   return (
     <div className="QuickCategoryItem">
-      <Link to={`/quickCategory/${categoryItem.name}`}>
-        <img src={categoryItem.iconUrl} alt={categoryItem.name} />
-        <p>{categoryItem.name}</p>
+      <Link to={`/quickCategory/${categoryItem.nameKo}`}>
+        <img src={categoryItem.iconUrl} alt={categoryItem.nameKo} />
+        <p>{categoryItem.nameKo}</p>
       </Link>
     </div>
   );

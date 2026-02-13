@@ -11,6 +11,7 @@ const SearchDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const [isReady, setIsReady] = useState(false);
   const [item, setItem] = useState({});
 
   useEffect(() => {
@@ -24,6 +25,8 @@ const SearchDetailPage = () => {
           } catch (e) {
               console.error("items load failed:", e);
               setItem({});
+          }finally {
+              setIsReady(true)
           }
       })();
   }, [id]);
@@ -32,6 +35,9 @@ const SearchDetailPage = () => {
     navigate(-1);
   };
 
+  if (!isReady) {
+      return <div>Loading...</div>;
+  }
   return (
     <div className="SearchDetailPage">
       <div className="Result">

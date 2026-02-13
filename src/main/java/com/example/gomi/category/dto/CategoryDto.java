@@ -1,12 +1,17 @@
 package com.example.gomi.category.dto;
 
+import com.example.gomi.category.entity.Categories;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CategoryDto {
 
     private Long categoryId;
@@ -20,17 +25,16 @@ public class CategoryDto {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public CategoryDto(Long categoryId, String code, String nameKo, String nameJp, int sortOrder, String colorToken, String iconUrl, boolean active, LocalDateTime createdAt, LocalDateTime updatedAt){
-        this.categoryId = categoryId;
-        this.code = code;
-        this.nameKo = nameKo;
-        this.nameJp = nameJp;
-        this.sortOrder = sortOrder;
-        this.colorToken = colorToken;
-        this.iconUrl = iconUrl;
-        this.active = active;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+
+    public static CategoryDto from(Categories categories){
+        CategoryDto dto = new CategoryDto();
+        dto.categoryId = categories.getId();
+        dto.code = categories.getCode();
+        dto.nameKo = categories.getCategoryNameKo();
+        dto.nameJp = categories.getCategoryNameJp();
+        dto.iconUrl = categories.getIconUrl();
+
+        return dto;
     }
 
 }

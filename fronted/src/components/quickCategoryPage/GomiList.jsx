@@ -5,7 +5,7 @@ const GomiList = ({ gomiList }) => {
   return (
     <div className="GomiList">
       {gomiList.map((gomi) => (
-        <GomiItem key={gomi.id} gomi={gomi} />
+        <GomiItem key={gomi.itemId} gomi={gomi} />
       ))}
     </div>
   );

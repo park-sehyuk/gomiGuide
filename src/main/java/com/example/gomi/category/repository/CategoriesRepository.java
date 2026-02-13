@@ -10,6 +10,8 @@ public interface CategoriesRepository extends JpaRepository<Categories, Long> {
 
     Optional<Categories> findByCode(String code);
 
+    List<Categories> findAllBy();
+
     List<Categories> findAllByActiveTrueOrderBySortOrderAsc();
 
     boolean existsByCode(String code);

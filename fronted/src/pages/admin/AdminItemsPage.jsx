@@ -9,6 +9,7 @@ import "./AdminItemsPage.css";
 
 const AdminItemsPage = () => {
   const [items, setItems] = useState([]);
+  const [isReady, setIsReady] = useState(false);
 
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
@@ -28,6 +29,8 @@ const AdminItemsPage = () => {
       } catch (e) {
         console.error("items load failed:", e);
         setItems([]);
+      }finally {
+        setIsReady(true);
       }
     })();
   }, []);
@@ -85,6 +88,10 @@ const AdminItemsPage = () => {
   useEffect(() => {
     setPage(1);
   }, [query, category, sortKey, sortDir]);
+
+  if (!isReady) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="AdminItems">

@@ -1,8 +1,0 @@
-[
-  { "id": 1, "name": "가연성", "iconUrl": "/icon/burn.png" },
-  { "id": 2, "name": "불연성", "iconUrl": "/icon/non-burn.png" },
-  { "id": 3, "name": "자원류", "iconUrl": "/icon/resource.png" },
-  { "id": 4, "name": "가전", "iconUrl": "/icon/appliances.png" },
-  { "id": 5, "name": "대형", "iconUrl": "/icon/sodai.png" },
-  { "id": 6, "name": "유해", "iconUrl": "/icon/danger.png" }
-]

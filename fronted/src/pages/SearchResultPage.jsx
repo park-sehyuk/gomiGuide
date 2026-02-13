@@ -6,6 +6,7 @@ import { SearchItem } from "../components/searchResultPage";
 import "./SearchResultPage.css";
 
 const SearchResultPage = () => {
+  const [isReady, setIsReady] = useState(false);
   const [searchParams] = useSearchParams();
   const query = searchParams.get("query") || "";
 
@@ -21,6 +22,8 @@ const SearchResultPage = () => {
       } catch (e) {
         console.error("items load failed:", e);
         setDischargeMethods([]);
+      }finally {
+        setIsReady(true);
       }
     })();
   }, []);
@@ -28,6 +31,10 @@ const SearchResultPage = () => {
   const filteredMethod = dischargeMethods.filter(
     (item) => item.nameKo.includes(query) || item.nameJp.includes(query),
   );
+
+  if (!isReady) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="SearchResultPage">

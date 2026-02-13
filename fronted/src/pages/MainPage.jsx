@@ -33,19 +33,20 @@ const MainPage = () => {
   const [weekInfo, setWeekInfo] = useState(week);
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`/data/categoryData.json`);
-      setCategoryData(response.data);
-    } catch (e) {
-      console.error("Error fetching category data:", e);
-    } finally {
-      setIsReady(true);
-    }
-  };
+      (async () => {
+        try {
+          const res = await fetch("/api/category");
+          if (!res.ok) throw new Error(`items fetch failed: ${res.status}`);
+          const data = await res.json();
+          setCategoryData(Array.isArray(data) ? data : []);
+        } catch (e) {
+          console.error("items load failed:", e);
+          setCategoryData([]);
+        }finally {
+          setIsReady(true)
+        }
+      })();
+    }, []);
 
   const handleSearch = () => {
     if (search.trim() !== "") {
