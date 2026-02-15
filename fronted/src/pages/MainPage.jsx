@@ -9,15 +9,7 @@ import {
 } from "../components/mainPage";
 import "./MainPage.css";
 
-const week = [
-  { id: 1, name: "월", imgUrl: "icon/burn.png" },
-  { id: 2, name: "화", imgUrl: "icon/burn.png" },
-  { id: 3, name: "수", imgUrl: "icon/non-burn.png" },
-  { id: 4, name: "목", imgUrl: "icon/appliances.png" },
-  { id: 5, name: "금", imgUrl: "icon/burn.png" },
-  { id: 6, name: "토", imgUrl: "icon/sodai.png" },
-  { id: 7, name: "일", imgUrl: "icon/resource.png" },
-];
+const DAY_MAP = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
 
 const MainPage = () => {
   const [isReady, setIsReady] = useState(false);
@@ -28,25 +20,43 @@ const MainPage = () => {
   const navigate = useNavigate();
 
   // 지역 선택 관리
-  const [selected, setSelected] = useState(null);
-  // 주간 일정 관리
-  const [weekInfo, setWeekInfo] = useState(week);
+  const [selectedArea, setSelectedArea] = useState("SHINJUKU");
+  const [dayOfWeek, setDayOfWeek] = useState([])
+  const toDay = DAY_MAP[new Date().getDay()]
+  console.log(toDay);
 
   useEffect(() => {
       (async () => {
         try {
           const res = await fetch("/api/category");
-          if (!res.ok) throw new Error(`items fetch failed: ${res.status}`);
+          if (!res.ok) throw new Error(`category fetch failed: ${res.status}`);
           const data = await res.json();
           setCategoryData(Array.isArray(data) ? data : []);
         } catch (e) {
-          console.error("items load failed:", e);
+          console.error("category load failed:", e);
           setCategoryData([]);
         }finally {
           setIsReady(true)
         }
       })();
     }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch(`/api/areaRule/${selectedArea}`);
+        if (!res.ok) throw new Error(`area fetch failed: ${res.status}`);
+        const data = await res.json();
+        console.log(data);
+        setDayOfWeek(Array.isArray(data) ? data : []);
+      } catch (e) {
+        console.error("area load failed:", e);
+        setDayOfWeek([]);
+      }finally {
+        setIsReady(true)
+      }
+    })();
+  }, []);
 
   const handleSearch = () => {
     if (search.trim() !== "") {
@@ -59,6 +69,11 @@ const MainPage = () => {
       handleSearch();
     }
   };
+
+  const filterDay = dayOfWeek.filter((nowDay) =>
+  nowDay === toDay)
+
+  console.log(filterDay);
 
   if (!isReady) {
     return <div>Loading...</div>;
@@ -78,17 +93,17 @@ const MainPage = () => {
       <div className="RegionSelectPage">
         <div className="MapSelect">
           <p>지도를 클릭하여 거주하시는 구를 선택해주세요.</p>
-          <TokyoMap selectWard={(ward) => setSelected(ward)} />
+          <TokyoMap selectWard={(ward) => setSelectedArea(ward)} />
         </div>
       </div>
       <div className="Infos">
         <div className="TodayInfoPage">
           <h2>오늘의 배출 정보 (Today)</h2>
-          <TodayInfo />
+          <TodayInfo toDays={filterDay} selectedArea={selectedArea}/>
         </div>
         <div className="WeekInfoPage">
           <h2>주간 일정 (Weekly)</h2>
-          <WeekInfo weekInfo={weekInfo} />
+          <WeekInfo weekInfo={dayOfWeek} />
         </div>
       </div>
       <div className="QuickCategoryPage">

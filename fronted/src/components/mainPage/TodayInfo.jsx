@@ -1,12 +1,17 @@
 import "./TodayInfo.css";
 
-const TodayInfo = () => {
+const TodayInfo = ({toDays, selectedArea}) => {
   return (
     <div className="TodayInfo">
-      <div>
-        <img src="/icon/burn.png" alt="가연성 아이콘" />
-        <p>가연성 쓰레기 버리는 날입니다!!</p>
-      </div>
+        <h2>{selectedArea.areaNameKo}</h2>
+        {toDays.length === 0 ? <div>
+            <p>쓰레기를 버릴 수 있는 날이 아닙니다!!</p>
+        </div> :
+            toDays.map(toDay => <div>
+                <img src={toDay.iconUrl} alt={toDay.categoryNameKo} />
+                <p>{toDay.categoryNameKo} 버리는 날입니다!!</p>
+            </div>)
+        }
     </div>
   );
 };

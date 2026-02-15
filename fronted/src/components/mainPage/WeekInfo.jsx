@@ -5,9 +5,9 @@ const WeekInfo = ({ weekInfo }) => {
     <div className="WeekInfo">
       <ul>
         {weekInfo.map((dayInfo) => (
-          <li key={dayInfo.id}>
-            <p>{dayInfo.name}</p>
-            <img src={dayInfo.imgUrl} alt={dayInfo.name} />
+          <li key={dayInfo.ruleId}>
+            <p>{dayInfo.dayOfWeek}</p>
+            <img src={dayInfo.iconUrl} alt={dayInfo.categoryNameKo} />
           </li>
         ))}
       </ul>
