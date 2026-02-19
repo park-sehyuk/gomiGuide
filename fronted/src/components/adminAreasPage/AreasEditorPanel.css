@@ -38,6 +38,28 @@
   gap: 14px;
 }
 
+.ScheduleMeta {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.Field.Inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.InlineInputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Sep {
+  color: var(--Muted);
+}
+
 .Field {
   display: grid;
   gap: 8px;

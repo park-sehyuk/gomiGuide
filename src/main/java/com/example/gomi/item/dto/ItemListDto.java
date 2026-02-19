@@ -22,6 +22,7 @@ public class ItemListDto {
     private String categoryNameKo;
     private String categoryNameJp;
     private String iconUrl;
+    private String officialUrl;
     private boolean active;
     private LocalDateTime updatedAt;
 
@@ -30,6 +31,7 @@ public class ItemListDto {
         dto.itemId = item.getId();
         dto.nameKo = item.getNameKo();
         dto.nameJp = item.getNameJp();
+        dto.officialUrl = item.getOfficialUrl();
         dto.active = item.isActive();
         dto.updatedAt = item.getUpdatedAt();
 

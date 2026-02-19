@@ -1,12 +1,17 @@
 package com.example.gomi.area.dto;
 
+import com.example.gomi.area.entity.Areas;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class AreaDto {
 
     private String areaId;
@@ -23,14 +28,15 @@ public class AreaDto {
 
     private LocalDateTime updatedAt;
 
-    public AreaDto(String areaId, String nameKo, String nameJp, String parentId, boolean active, LocalDateTime createdAt, LocalDateTime updatedAt){
-        this.areaId = areaId;
-        this.nameKo = nameKo;
-        this.nameJp = nameJp;
-        this.parentId = parentId;
-        this.active = active;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+    public static AreaDto selectedArea(Areas areas){
+        AreaDto dto = new AreaDto();
+        dto.areaId = areas.getId();
+        dto.nameKo = areas.getNameKo();;
+        dto.nameJp = areas.getNameJp();
+        dto.parentId = areas.getParentId();
+        dto.active = areas.isActive();
+
+        return dto;
     }
 
 }

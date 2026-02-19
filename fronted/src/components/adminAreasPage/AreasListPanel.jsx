@@ -34,14 +34,14 @@ const AreasListPanel = ({
         {areas.length === 0 ? (
           <div className="Empty">검색 결과가 없습니다.</div>
         ) : (
-          areas.map((a) => (
+          areas.map((a, idx) => (
             <button
-              key={a.id}
+              key={`${a.id || "new"}-${idx}`}
               className={`AreaItem ${selectedId === a.id ? "Active" : ""}`}
               onClick={() => onSelect(a.id)}
               type="button"
             >
-              <div className="AreaName">{a.nameKo}</div>
+              <div className="AreaName">{a.nameKo || "새 지역"}</div>
               <div className="AreaMeta">
                 <span className="Badge">
                   {a.type === "ward" ? "구(区)" : "시(市)"}

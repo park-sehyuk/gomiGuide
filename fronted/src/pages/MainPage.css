@@ -1,41 +1,96 @@
 .Main {
-  margin-top: 50px;
+  margin: 24px auto 48px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  gap: 32px;
+  padding: 0 24px;
+  max-width: 1100px;
 }
 
 .GomiSearch {
-  position: relative;
-  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .GomiSearch input {
-  width: 500px;
-  height: 40px;
-  padding-left: 15px;
-  padding-right: 15px;
+  flex: 1;
+  height: 44px;
+  padding: 0 14px;
   border-radius: 10px;
+  border: 1px solid #000;
 }
 
 .GomiSearch button {
-  position: absolute;
-  top: 9px;
-  right: 5px;
-  width: 26px;
-  height: 26px;
-  margin-left: 10px;
+  width: 36px;
+  height: 36px;
   background-image: url("../../public/icon/search.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
   text-indent: -9999px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.RegionSelectPage .MapSelect {
+  text-align: center;
+  margin-top: 6px;
 }
 
 .Infos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.Infos h2 {
+  margin-bottom: 12px;
+}
+
+.TodayInfoPage,
+.WeekInfoPage {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.TodayInfoPage h2,
+.WeekInfoPage h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.TodayInfoPage,
+.WeekInfoPage {
   display: flex;
-  justify-content: center;
-  gap: 50px;
-  margin-bottom: 60px;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .QuickCategoryPage h2 {
   margin-bottom: 15px;
+}
+
+@media (max-width: 900px) {
+  .Infos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .Main {
+    padding: 0 16px;
+    gap: 28px;
+  }
+
+  .GomiSearch input {
+    height: 42px;
+  }
 }

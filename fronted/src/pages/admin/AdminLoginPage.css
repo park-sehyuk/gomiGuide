@@ -1,0 +1,60 @@
+.AdminLoginPage {
+  max-width: 420px;
+  margin: 80px auto 0;
+  padding: 32px 28px;
+  border: 1px solid #000;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.AdminLoginPage h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.AdminLoginPage input {
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid #000;
+  font-size: 16px;
+}
+
+.AdminLoginPage .LoginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.AdminLoginPage .Error {
+  margin: 0;
+  font-size: 14px;
+  color: #c00000;
+}
+
+.AdminLoginPage input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
+}
+
+.AdminLoginPage button {
+  height: 44px;
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.AdminLoginPage button:hover {
+  filter: brightness(0.9);
+}
+
+@media (max-width: 640px) {
+  .AdminLoginPage {
+    margin: 40px 16px 0;
+    padding: 24px 20px;
+  }
+}

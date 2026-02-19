@@ -22,4 +22,8 @@ public interface AreaRulesRepository extends JpaRepository<AreaRules, Long> {
     List<AreaRules> findAllByCategories_IdAndActiveTrue(Long categoryId);
 
     List<AreaRules> findAllByAreas_IdAndCategories_IdAndActiveTrue(String areaId, Long categoryId);
+
+    List<AreaRules> findAllByAreas_IdInAndActiveTrue(List<String> areaIds);
+
+    void deleteAllByAreas_Id(String areaId);
 }

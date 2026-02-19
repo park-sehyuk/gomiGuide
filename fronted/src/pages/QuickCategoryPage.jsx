@@ -15,6 +15,7 @@ const QuickCategoryPage = () => {
   const navigate = useNavigate();
 
   const [categoryData, setCategoryData] = useState([]);
+  const [areas, setAreas] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -34,6 +35,24 @@ const QuickCategoryPage = () => {
     })();
   }, [category]);
 
+  useEffect(() => {
+    (async () => {
+      try{
+        const res = await fetch(
+            `/api/area`
+        );
+        if(!res.ok) throw new Error(`area fetech failed : ${res.status}`);
+        const data = await res.json();
+        setAreas(Array.isArray(data) ? data : []);
+      }catch (e){
+        console.error(`area load filed : `, e);
+        setAreas([]);
+      }finally {
+        setIsReady(true);
+      }
+    })();
+  }, []);
+
   const handleBack = () => {
     navigate(-1);
   };
@@ -47,7 +66,7 @@ const QuickCategoryPage = () => {
         <CategoryInfo category={categoryData} />
       </div>
       <div className="DischargeData">
-        <DischargeInfo />
+        <DischargeInfo areas={areas} categoryName={category} />
       </div>
       <div className="GomiListPage">
         <GomiList gomiList={categoryData} />

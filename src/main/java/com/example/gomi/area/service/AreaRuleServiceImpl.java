@@ -23,4 +23,13 @@ public class AreaRuleServiceImpl implements AreaRuleService{
 
         return dayOfWeek.stream().map(AreaRuleDto::from).collect(Collectors.toList());
     }
+
+    @Override
+    public List<AreaRuleDto> getAreaCategory(String areaId, Long categoryId) {
+        List<AreaRules> areaCategory;
+
+        areaCategory = areaRulesRepository.findAllByAreas_IdAndCategories_IdAndActiveTrue(areaId, categoryId);
+
+        return areaCategory.stream().map(AreaRuleDto::from).collect(Collectors.toList());
+    }
 }

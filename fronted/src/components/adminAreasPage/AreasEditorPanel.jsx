@@ -30,6 +30,17 @@ const AreasEditorPanel = ({ area, onChange, onSave, onCancel }) => {
 
       <div className="EditorForm">
         <div className="Field">
+          <label className="Label">지역 ID</label>
+          <input
+            className="TextInput"
+            value={area.id ?? ""}
+            onChange={(e) => setField("id", e.target.value)}
+            placeholder="예: shinjuku"
+            disabled={!area.isNew}
+          />
+        </div>
+
+        <div className="Field">
           <label className="Label">지역명(한국어)</label>
           <input
             className="TextInput"
@@ -62,6 +73,18 @@ const AreasEditorPanel = ({ area, onChange, onSave, onCancel }) => {
         </div>
 
         <div className="Field">
+          <label className="Label">활성 여부</label>
+          <select
+            className="Select"
+            value={area.active ? "true" : "false"}
+            onChange={(e) => setField("active", e.target.value === "true")}
+          >
+            <option value="true">활성</option>
+            <option value="false">비활성</option>
+          </select>
+        </div>
+
+        <div className="Field">
           <label className="Label">특이사항/메모</label>
           <textarea
             className="Textarea"
@@ -74,6 +97,64 @@ const AreasEditorPanel = ({ area, onChange, onSave, onCancel }) => {
 
         <div className="Field">
           <label className="Label">요일표</label>
+          <div className="ScheduleMeta">
+            <div className="Field Inline">
+              <label className="Label">수거 시간</label>
+              <div className="InlineInputs">
+                <input
+                  className="TextInput"
+                  type="time"
+                  value={area.schedule?.timeStart ?? ""}
+                  onChange={(e) =>
+                    setField("schedule", {
+                      ...area.schedule,
+                      timeStart: e.target.value,
+                    })
+                  }
+                />
+                <span className="Sep">~</span>
+                <input
+                  className="TextInput"
+                  type="time"
+                  value={area.schedule?.timeEnd ?? ""}
+                  onChange={(e) =>
+                    setField("schedule", {
+                      ...area.schedule,
+                      timeEnd: e.target.value,
+                    })
+                  }
+                />
+              </div>
+            </div>
+            <div className="Field Inline">
+              <label className="Label">적용 기간</label>
+              <div className="InlineInputs">
+                <input
+                  className="TextInput"
+                  type="date"
+                  value={area.schedule?.effectiveFrom ?? ""}
+                  onChange={(e) =>
+                    setField("schedule", {
+                      ...area.schedule,
+                      effectiveFrom: e.target.value,
+                    })
+                  }
+                />
+                <span className="Sep">~</span>
+                <input
+                  className="TextInput"
+                  type="date"
+                  value={area.schedule?.effectiveTo ?? ""}
+                  onChange={(e) =>
+                    setField("schedule", {
+                      ...area.schedule,
+                      effectiveTo: e.target.value,
+                    })
+                  }
+                />
+              </div>
+            </div>
+          </div>
           <WeekdayScheduleGrid
             schedule={area.schedule ?? {}}
             onChange={(next) => setField("schedule", next)}

@@ -28,6 +28,12 @@ public class Areas extends BaseEntity {
     @Column(length = 60)
     private String parentId;
 
+    @Column(length = 20)
+    private String type;
+
+    @Column(length = 500)
+    private String note;
+
     @Column(name = "is_active", nullable = false)
     private boolean active = true;
 
@@ -37,6 +43,20 @@ public class Areas extends BaseEntity {
         areas.nameKo = nameKo;
         areas.nameJp = nameJp;
         areas.parentId = parentId;
+        areas.active = active;
+
+        return areas;
+    }
+
+    public static Areas createAreas(String id, String nameKo, String nameJp,
+                                    String parentId, String type, String note, boolean active){
+        Areas areas = new Areas();
+        areas.id = id;
+        areas.nameKo = nameKo;
+        areas.nameJp = nameJp;
+        areas.parentId = parentId;
+        areas.type = type;
+        areas.note = note;
         areas.active = active;
 
         return areas;
@@ -53,5 +73,13 @@ public class Areas extends BaseEntity {
 
     public void changeParent(String parentId){
         this.parentId = parentId;
+    }
+
+    public void changeType(String type){
+        this.type = type;
+    }
+
+    public void changeNote(String note){
+        this.note = note;
     }
 }

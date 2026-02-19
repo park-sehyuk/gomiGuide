@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   AreasHeader,
   AreasListPanel,
@@ -6,51 +6,10 @@ import {
 } from "../../components/adminAreasPage";
 import "./AdminAreasPage.css";
 
-const MOCK_AREAS = [
-  {
-    id: "ward-shinjuku",
-    type: "ward",
-    nameKo: "신주쿠구",
-    nameJp: "新宿区",
-    note: "",
-    schedule: {
-      burnable: [0, 2, 4],
-      recyclable: [1],
-      nonburnable: [3],
-      sodai: [],
-    },
-  },
-  {
-    id: "ward-shibuya",
-    type: "ward",
-    nameKo: "시부야구",
-    nameJp: "渋谷区",
-    note: "대형쓰레기는 사전 신청 필요",
-    schedule: {
-      burnable: [1, 3, 5],
-      recyclable: [2],
-      nonburnable: [4],
-      sodai: [],
-    },
-  },
-  {
-    id: "city-hachioji",
-    type: "city",
-    nameKo: "하치오지시",
-    nameJp: "八王子市",
-    note: "",
-    schedule: {
-      burnable: [0, 3],
-      recyclable: [2],
-      nonburnable: [4],
-      sodai: [5],
-    },
-  },
-];
-
 const AdminAreasPage = () => {
-  const [areas, setAreas] = useState(MOCK_AREAS);
-  const [selectedId, setSelectedId] = useState(areas[0]?.id ?? null);
+  const [areas, setAreas] = useState([]);
+  const [selectedId, setSelectedId] = useState(null);
+  const [isReady, setIsReady] = useState(false);
 
   const [query, setQuery] = useState("");
   const [type, setType] = useState("all");
@@ -59,6 +18,28 @@ const AdminAreasPage = () => {
     () => areas.find((a) => a.id === selectedId) ?? null,
     [areas, selectedId],
   );
+
+  const loadAreas = async () => {
+    try {
+      const res = await fetch("/api/admin/areas", {
+        credentials: "include",
+      });
+      if (!res.ok) throw new Error(`areas fetch failed: ${res.status}`);
+      const data = await res.json();
+      const list = Array.isArray(data) ? data : [];
+      setAreas(list);
+      setSelectedId(list[0]?.id ?? null);
+    } catch (e) {
+      console.error("areas load failed:", e);
+      setAreas([]);
+    } finally {
+      setIsReady(true);
+    }
+  };
+
+  useEffect(() => {
+    loadAreas();
+  }, []);
 
   const list = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -74,12 +55,23 @@ const AdminAreasPage = () => {
 
   const onCreate = () => {
     const newArea = {
-      id: `new-${Date.now()}`,
+      id: "",
       type: "ward",
-      nameKo: "새 지역",
+      nameKo: "",
       nameJp: "",
       note: "",
-      schedule: { burnable: [], nonburnable: [], recyclable: [], sodai: [] },
+      active: true,
+      schedule: {
+        burnable: [],
+        nonburnable: [],
+        recyclable: [],
+        sodai: [],
+        timeStart: "",
+        timeEnd: "",
+        effectiveFrom: "",
+        effectiveTo: "",
+      },
+      isNew: true,
     };
     setAreas((prev) => [newArea, ...prev]);
     setSelectedId(newArea.id);
@@ -89,8 +81,38 @@ const AdminAreasPage = () => {
     setAreas((prev) => prev.map((a) => (a.id === nextArea.id ? nextArea : a)));
   };
 
-  const onSave = () => alert("다음 단계에서 실제 저장(API/DB) 연결!");
-  const onCancel = () => alert("다음 단계에서 변경사항 롤백 구현!");
+  const onSave = async () => {
+    if (!selected) return;
+    if (!selected.id || !selected.id.trim()) {
+      alert("지역 ID는 필수입니다.");
+      return;
+    }
+
+    try {
+      const res = await fetch(
+        selected.isNew
+          ? "/api/admin/areas"
+          : `/api/admin/areas/${encodeURIComponent(selected.id)}`,
+        {
+          method: selected.isNew ? "POST" : "PATCH",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+          body: JSON.stringify(selected),
+        }
+      );
+      if (!res.ok) throw new Error(`save failed: ${res.status}`);
+      await loadAreas();
+    } catch (e) {
+      console.error("area save failed:", e);
+      alert("저장에 실패했습니다. 입력값을 확인해주세요.");
+    }
+  };
+
+  const onCancel = () => {
+    loadAreas();
+  };
+
+  if (!isReady) return <div>Loading...</div>;
 
   return (
     <div className="AdminAreas">

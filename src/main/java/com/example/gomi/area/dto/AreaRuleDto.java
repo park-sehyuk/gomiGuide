@@ -24,7 +24,7 @@ public class AreaRuleDto {
     private Long categoryId;
     private String categoryCode;
     private String iconUrl;
-    private String categoryNameKO;
+    private String categoryNameKo;
     private DayOfWeek dayOfWeek;
     private LocalTime timeStart;
     private LocalTime timeEnd;
@@ -60,7 +60,7 @@ public class AreaRuleDto {
             dto.categoryId = categories.getId();
             dto.categoryCode = categories.getCode();
             dto.iconUrl = categories.getIconUrl();
-            dto.categoryNameKO = categories.getCategoryNameKo();
+            dto.categoryNameKo = categories.getCategoryNameKo();
         }
 
         return dto;

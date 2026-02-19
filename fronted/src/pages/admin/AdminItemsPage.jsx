@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   ItemsHeader,
   ItemsFilterBar,
@@ -10,6 +11,7 @@ import "./AdminItemsPage.css";
 const AdminItemsPage = () => {
   const [items, setItems] = useState([]);
   const [isReady, setIsReady] = useState(false);
+  const navigate = useNavigate();
 
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
@@ -19,20 +21,24 @@ const AdminItemsPage = () => {
   const [page, setPage] = useState(1);
   const pageSize = 10;
 
+  const loadItems = async () => {
+    try {
+      const res = await fetch("/api/admin/items", {
+        credentials: "include",
+      });
+      if (!res.ok) throw new Error(`items fetch failed: ${res.status}`);
+      const data = await res.json();
+      setItems(Array.isArray(data) ? data : []);
+    } catch (e) {
+      console.error("items load failed:", e);
+      setItems([]);
+    } finally {
+      setIsReady(true);
+    }
+  };
+
   useEffect(() => {
-    (async () => {
-      try {
-        const res = await fetch("/api/admin/items");
-        if (!res.ok) throw new Error(`items fetch failed: ${res.status}`);
-        const data = await res.json();
-        setItems(Array.isArray(data) ? data : []);
-      } catch (e) {
-        console.error("items load failed:", e);
-        setItems([]);
-      }finally {
-        setIsReady(true);
-      }
-    })();
+    loadItems();
   }, []);
 
   const categories = useMemo(() => {
@@ -75,11 +81,23 @@ const AdminItemsPage = () => {
 
   const toggleSortDir = () => setSortDir((d) => (d === "asc" ? "desc" : "asc"));
 
-  const handleCreate = () => alert("다음 단계에서 등록 폼 연결!");
-  const handleEdit = (item) =>
-    alert(`다음 단계에서 수정 폼 연결! (${item.nameKo})`);
-  const handleDelete = (item) =>
-    alert(`다음 단계에서 삭제 처리 연결! (${item.nameKo})`);
+  const handleCreate = () => navigate("/admin/items/new");
+  const handleEdit = (item) => navigate(`/admin/items/${item.itemId}/edit`);
+  const handleDelete = async (item) => {
+    const ok = window.confirm(`삭제하시겠습니까? (${item.nameKo})`);
+    if (!ok) return;
+    try {
+      const res = await fetch(`/api/admin/items/${item.itemId}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+      if (!res.ok) throw new Error(`delete failed: ${res.status}`);
+      await loadItems();
+    } catch (e) {
+      console.error("delete failed:", e);
+      alert("삭제에 실패했습니다. 잠시 후 다시 시도해주세요.");
+    }
+  };
 
   const prev = () => setPage((p) => Math.max(1, p - 1));
   const next = () => setPage((p) => Math.min(totalPages, p + 1));

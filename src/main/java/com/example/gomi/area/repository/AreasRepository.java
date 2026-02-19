@@ -3,6 +3,7 @@ package com.example.gomi.area.repository;
 import com.example.gomi.area.entity.Areas;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,5 +16,13 @@ public interface AreasRepository extends JpaRepository<Areas, String> {
     List<Areas> findAllByParentIdAndActiveTrue(String parentId);
 
     boolean existsById(String id);
+
+    long countByActiveTrue();
+
+    long countByActiveFalse();
+
+    long countByCreatedAtBetween(LocalDateTime start, LocalDateTime end);
+
+    long countByUpdatedAtBetween(LocalDateTime start, LocalDateTime end);
 
 }

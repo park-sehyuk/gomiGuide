@@ -1,6 +1,6 @@
 .RegionSelectPage .TokyoMap {
   position: relative;
-  width: 500px;
+  width: 100%;
   max-width: 700px;
   margin: 30px auto 60px auto;
 }

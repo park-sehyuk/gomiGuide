@@ -10,7 +10,7 @@ const ItemsTable = ({ items, onEdit, onDelete }) => {
             <th>이름(ko)</th>
             <th>이름(jp)</th>
             <th style={{ width: 140 }}>카테고리</th>
-            <th style={{ width: 180 }}>공식 링크</th>
+            <th style={{ width: 220 }}>공식 링크</th>
             <th style={{ width: 160 }}>관리</th>
           </tr>
         </thead>
@@ -24,22 +24,22 @@ const ItemsTable = ({ items, onEdit, onDelete }) => {
             </tr>
           ) : (
             items.map((it) => (
-              <tr key={it.id ?? `${it.nameKo}-${it.nameJp}`}>
-                <td className="Mono">{it.id ?? "-"}</td>
+              <tr key={it.itemId ?? `${it.nameKo}-${it.nameJp}`}>
+                <td className="Mono">{it.itemId ?? "-"}</td>
                 <td>{it.nameKo ?? "-"}</td>
                 <td>{it.nameJp ?? "-"}</td>
                 <td>
                   <span className="Badge">{it.categoryNameKo ?? "-"}</span>
                 </td>
                 <td>
-                  {it.officialLink ? (
+                  {it.officialUrl ? (
                     <a
-                      className="Link"
-                      href={it.officialLink}
+                      className="Link UrlText"
+                      href={it.officialUrl}
                       target="_blank"
                       rel="noreferrer"
                     >
-                      열기
+                      {it.officialUrl}
                     </a>
                   ) : (
                     "-"

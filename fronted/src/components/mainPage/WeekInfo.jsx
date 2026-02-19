@@ -4,10 +4,14 @@ const WeekInfo = ({ weekInfo }) => {
   return (
     <div className="WeekInfo">
       <ul>
-        {weekInfo.map((dayInfo) => (
-          <li key={dayInfo.ruleId}>
+        {weekInfo.map((dayInfo, idx) => (
+          <li key={dayInfo.ruleId ?? `day-${idx}`}>
             <p>{dayInfo.dayOfWeek}</p>
-            <img src={dayInfo.iconUrl} alt={dayInfo.categoryNameKo} />
+            {dayInfo.iconUrl ? (
+              <img src={dayInfo.iconUrl} alt={dayInfo.categoryNameKo ?? ""} />
+            ) : (
+              <div className="IconPlaceholder" />
+            )}
           </li>
         ))}
       </ul>

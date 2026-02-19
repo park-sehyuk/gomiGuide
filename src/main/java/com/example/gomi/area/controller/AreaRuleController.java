@@ -24,4 +24,6 @@ public class AreaRuleController {
         return ResponseEntity.ok(dto);
     }
 
+
+
 }

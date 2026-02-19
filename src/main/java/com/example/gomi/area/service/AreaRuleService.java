@@ -8,4 +8,6 @@ public interface AreaRuleService {
 
     List<AreaRuleDto> getDayOfWeek(String areaId);
 
+    List<AreaRuleDto> getAreaCategory(String areaId, Long categoryId);
+
 }

@@ -17,4 +17,6 @@ public interface ItemAdminService {
 
     List<ItemListDto> getItems(String keyword);
 
+    void deleteItem(Long itemId);
+
 }

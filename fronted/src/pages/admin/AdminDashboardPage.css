@@ -14,9 +14,45 @@
   margin-bottom: 32px;
 }
 
+.DashboardSummary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 16px;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+.DashboardSummary h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.DashboardSummary p {
+  margin: 0;
+  color: #333;
+}
+
 .RecentBox {
   background: #ffffff;
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 900px) {
+  .DashboardCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .DashboardCards {
+    grid-template-columns: 1fr;
+  }
+
+  .DashboardSummary {
+    grid-template-columns: 1fr;
+  }
 }

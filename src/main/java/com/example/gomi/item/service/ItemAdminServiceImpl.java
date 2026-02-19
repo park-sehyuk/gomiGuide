@@ -100,6 +100,15 @@ public class ItemAdminServiceImpl implements ItemAdminService{
         return items.stream().map(ItemListDto::from).collect(Collectors.toList());
     }
 
+    @Override
+    public void deleteItem(Long itemId) {
+        Item item = itemRepository.findById(itemId)
+                .orElseThrow(() -> new EntityNotFoundException("Item not found: " + itemId));
+
+        itemSynonymRepository.deleteAllByItem_Id(itemId);
+        itemRepository.delete(item);
+    }
+
 
     private List<ItemSynonym> buildSynonyms(Item item, @Valid List<CreateItemDto.Synonym> synonyms) {
 
