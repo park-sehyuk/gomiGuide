@@ -8,11 +8,6 @@ const Header = () => {
         <img src="/icon/gomiguide.png" alt="Logo" />
         <p>GOMI</p>
       </Link>
-      <div className="Language">
-        <button>KR</button>
-        <p>|</p>
-        <button>JP</button>
-      </div>
     </header>
   );
 };

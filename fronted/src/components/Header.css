@@ -26,28 +26,6 @@
   font-size: 18px;
   font-weight: bold;
 }
-.header .Language {
-  display: flex;
-  gap: 10px;
-  position: absolute;
-  top: 70px;
-  right: 120px;
-}
 
-.header .Language button {
-  font-size: 20px;
-  font-weight: bold;
-}
 
-@media (max-width: 640px) {
-  .header .Language {
-    top: auto;
-    bottom: 12px;
-    right: 16px;
-    gap: 8px;
-  }
 
-  .header .Language button {
-    font-size: 16px;
-  }
-}

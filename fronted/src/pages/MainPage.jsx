@@ -9,7 +9,16 @@ import {
 } from "../components/mainPage";
 import "./MainPage.css";
 
-const DAY_MAP = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+const DAY_MAP = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+const DAY_LABEL_KO = {
+  SUN: "일",
+  MON: "월",
+  TUE: "화",
+  WED: "수",
+  THU: "목",
+  FRI: "금",
+  SAT: "토",
+};
 
 const MainPage = () => {
   const [isReady, setIsReady] = useState(false);
@@ -26,8 +35,8 @@ const MainPage = () => {
   // 지역 선택 관리
   const [selectedArea, setSelectedArea] = useState("shinjuku");
   const [selectedAreaNameKo, setSelectedAreaNameKo] = useState("신주쿠구");
-  const [dayOfWeek, setDayOfWeek] = useState([])
-  const toDay = DAY_MAP[new Date().getDay()]
+  const [dayOfWeek, setDayOfWeek] = useState([]);
+  const todayKey = DAY_MAP[new Date().getDay()];
 
   useEffect(() => {
     (async () => {
@@ -98,11 +107,39 @@ const MainPage = () => {
     }
   };
 
-  const filterDay = dayOfWeek.filter(
-    (dayInfo) => dayInfo.dayOfWeek === toDay
+  const filterDay = useMemo(
+    () =>
+      dayOfWeek.filter(
+        (dayInfo) => String(dayInfo.dayOfWeek ?? "").toUpperCase() === todayKey
+      ),
+    [dayOfWeek, todayKey]
   );
 
-  console.log(filterDay);
+  const weeklyInfo = useMemo(() => {
+    const groupedByDay = dayOfWeek.reduce((acc, rule) => {
+      const key = String(rule.dayOfWeek ?? "").toUpperCase();
+      if (!key) return acc;
+      if (!acc[key]) acc[key] = [];
+      acc[key].push(rule);
+      return acc;
+    }, {});
+
+    const today = new Date();
+    return Array.from({ length: 7 }, (_, offset) => {
+      const date = new Date(today);
+      date.setDate(today.getDate() + offset);
+      const dayKey = DAY_MAP[date.getDay()];
+      const matchedRules = groupedByDay[dayKey] ?? [];
+      const primaryRule = matchedRules[0] ?? {};
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+
+      return {
+        ...primaryRule,
+        dayOfWeek: `${DAY_LABEL_KO[dayKey]} (${month}/${day})`,
+      };
+    });
+  }, [dayOfWeek]);
 
   if (!isReady) {
     return <div>Loading...</div>;
@@ -133,11 +170,11 @@ const MainPage = () => {
       <div className="Infos">
         <div className="TodayInfoPage">
           <h2>오늘의 배출 정보 (Today)</h2>
-          <TodayInfo toDays={filterDay} selectedArea={selectedAreaNameKo}/>
+          <TodayInfo toDays={filterDay} selectedArea={selectedAreaNameKo} />
         </div>
         <div className="WeekInfoPage">
           <h2>주간 일정 (Weekly)</h2>
-          <WeekInfo weekInfo={dayOfWeek} />
+          <WeekInfo weekInfo={weeklyInfo} />
         </div>
       </div>
       <div className="QuickCategoryPage">
